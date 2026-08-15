@@ -118,7 +118,7 @@ public partial class HierarchyToolViewModel : Tool
             _loadingNewItemsTimer?.Stop();
             if (_stopLoadingItemsCts != null)
             {
-                await _stopLoadingItemsCts.CancelAsync();
+                _stopLoadingItemsCts.Cancel();
             }
         }
 
