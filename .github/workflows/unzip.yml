@@ -1,0 +1,21 @@
+name: Auto Unzip Uploads
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+permissions:
+  contents: write
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "the workflow is running"
+      - run: find . -name "*.zip" -not -path "./.git/*" -exec sh -c 'unzip -o "$1" -d "$(dirname "$1")" && rm "$1"' _ {} \;
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add -A -- . ':!.github'
+          git diff --staged --quiet || git commit -m "auto extract zip"
+          git push
