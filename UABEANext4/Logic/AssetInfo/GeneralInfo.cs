@@ -1,20 +1,19 @@
 using AssetsTools.NET.Extra;
-using System.Diagnostics.CodeAnalysis;
 
 namespace UABEANext4.Logic.AssetInfo;
 
 public class GeneralInfo
 {
-    public required string MetadataSize { get; set; }
-    public required string FileSize { get; set; }
-    public required string Format { get; set; }
-    public required string FirstFileOffset { get; set; }
-    public required string Endianness { get; set; }
-    public required string EngineVersion { get; set; }
-    public required string Platform { get; set; }
-    public required string TypeTreeEnabled { get; set; }
+    public string MetadataSize { get; set; }
+    public string FileSize { get; set; }
+    public string Format { get; set; }
+    public string FirstFileOffset { get; set; }
+    public string Endianness { get; set; }
+    public string EngineVersion { get; set; }
+    public string Platform { get; set; }
+    public string TypeTreeEnabled { get; set; }
 
-    [SetsRequiredMembers]
+
     public GeneralInfo(AssetsFileInstance file)
     {
         var header = file.file.Header;

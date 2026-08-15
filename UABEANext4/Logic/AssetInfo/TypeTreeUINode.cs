@@ -6,7 +6,7 @@ namespace UABEANext4.Logic.AssetInfo;
 
 public class TypeTreeUINode
 {
-    public required TypeTreeNode Node { get; init; }
-    public required InlineCollection Display { get; init; }
-    public required List<TypeTreeUINode> Children { get; init; }
+    public TypeTreeNode Node { get; init; }
+    public InlineCollection Display { get; init; }
+    public List<TypeTreeUINode> Children { get; init; }
 }

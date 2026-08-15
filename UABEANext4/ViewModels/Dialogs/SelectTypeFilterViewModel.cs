@@ -222,9 +222,9 @@ public partial class SelectTypeFilterViewModel : ViewModelBase, IDialogAware<IEn
 
 public partial class TypeFilterTypeEntry : ObservableObject
 {
-    public required string DisplayText { get; set; }
-    public required int TypeId { get; set; }
-    public required AssetTypeReference? ScriptRef { get; set; }
+    public string DisplayText { get; set; }
+    public int TypeId { get; set; }
+    public AssetTypeReference? ScriptRef { get; set; }
 
     [ObservableProperty]
     public bool _isSelected = false;
