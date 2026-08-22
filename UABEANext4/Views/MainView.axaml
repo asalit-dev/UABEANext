@@ -14,26 +14,26 @@
         <Menu Grid.Row="0" Padding="0,6">
             <MenuItem Header="File">
                 <MenuItem
-                    Header="Open" Command="{Binding FileOpen}"
+                    Header="Open" Command="{Binding FileOpenCommand}"
                     HotKey="Ctrl+O" InputGesture="Ctrl+O" />
                 <MenuItem
-                    Header="Open Folder" Command="{Binding FileOpenFolder}"
+                    Header="Open Folder" Command="{Binding FileOpenFolderCommand}"
                     HotKey="Ctrl+Shift+O" InputGesture="Ctrl+Shift+O" />
                 <MenuItem
-                    Header="Save Selected" Command="{Binding FileSave}"
+                    Header="Save Selected" Command="{Binding FileSaveCommand}"
                     HotKey="Ctrl+S" InputGesture="Ctrl+S" IsEnabled="{Binding Workspace.RootItems.Count}" />
                 <MenuItem
-                    Header="Save Selected As..." Command="{Binding FileSaveAs}"
+                    Header="Save Selected As..." Command="{Binding FileSaveAsCommand}"
                     HotKey="Ctrl+Shift+S" InputGesture="Ctrl+Shift+S" IsEnabled="{Binding Workspace.RootItems.Count}" />
                 <MenuItem
-                    Header="Save All" Command="{Binding FileSaveAll}"
+                    Header="Save All" Command="{Binding FileSaveAllCommand}"
                     HotKey="Ctrl+Alt+S" InputGesture="Ctrl+Alt+S" IsEnabled="{Binding Workspace.RootItems.Count}" />
                 <MenuItem
-                    Header="Close All" Command="{Binding FileCloseAll}"
+                    Header="Close All" Command="{Binding FileCloseAllCommand}"
                     HotKey="Ctrl+Shift+W" InputGesture="Ctrl+Shift+W" IsEnabled="{Binding Workspace.RootItems.Count}" />
             </MenuItem>
             <MenuItem Header="View">
-                <MenuItem Header="Duplicate Tab" Command="{Binding ViewDuplicateTab}" />
+                <MenuItem Header="Duplicate Tab" Command="{Binding ViewDuplicateTabCommand}" />
                 <MenuItem Header="-" />
                 <MenuItem Header="Workspace Explorer" ToggleType="CheckBox" IsChecked="{Binding DockWorkspaceExplorerVisible, Mode=TwoWay}" />
                 <MenuItem Header="Hierarchy" ToggleType="CheckBox" IsChecked="{Binding DockHierarchyVisible, Mode=TwoWay}" />
@@ -41,9 +41,9 @@
                 <MenuItem Header="Previewer" ToggleType="CheckBox" IsChecked="{Binding DockPreviewerVisible, Mode=TwoWay}" />
             </MenuItem>
             <MenuItem Header="Tools">
-                <MenuItem Header="Asset Info" Command="{Binding ShowAssetInfoDialog}" IsEnabled="{Binding Workspace.RootItems.Count}" />
-                <MenuItem Header="Search Bytes" Command="{Binding ShowSearchBytesDialog}" IsEnabled="{Binding Workspace.RootItems.Count}" />
-                <MenuItem Header="Options" Command="{Binding ShowOptionsDialog}" />
+                <MenuItem Header="Asset Info" Command="{Binding ShowAssetInfoDialogCommand}" IsEnabled="{Binding Workspace.RootItems.Count}" />
+                <MenuItem Header="Search Bytes" Command="{Binding ShowSearchBytesDialogCommand}" IsEnabled="{Binding Workspace.RootItems.Count}" />
+                <MenuItem Header="Options" Command="{Binding ShowOptionsDialogCommand}" />
             </MenuItem>
         </Menu>
         <DockControl Layout="{Binding Layout}" Margin="4" Grid.Row="1" Name="dockControl" />

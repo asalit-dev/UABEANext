@@ -3,6 +3,7 @@ using Avalonia.Platform;
 using Avalonia.Platform.Storage;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.DependencyInjection;
+using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using Dock.Model.Controls;
 using Dock.Model.Core;
@@ -353,7 +354,8 @@ public partial class MainViewModel : ViewModelBase
         }
     }
 
-    public async void FileOpen()
+    [RelayCommand]
+    public async Task FileOpen()
     {
         var storageProvider = StorageService.GetStorageProvider();
         if (storageProvider is null)
@@ -374,7 +376,8 @@ public partial class MainViewModel : ViewModelBase
         await OpenFiles(fileNames);
     }
 
-    public async void FileOpenFolder()
+    [RelayCommand]
+    public async Task FileOpenFolder()
     {
         var storageProvider = StorageService.GetStorageProvider();
         if (storageProvider is null)
@@ -492,6 +495,7 @@ public partial class MainViewModel : ViewModelBase
         }
     }
 
+    [RelayCommand]
     public async Task FileSave()
     {
         var wsItems = GetSelectedDocWorkspaceItems();
@@ -502,6 +506,7 @@ public partial class MainViewModel : ViewModelBase
     }
 
     // more like "save copy as"
+    [RelayCommand]
     public async Task FileSaveAs()
     {
         var wsItems = GetSelectedDocWorkspaceItems();
@@ -511,6 +516,7 @@ public partial class MainViewModel : ViewModelBase
         await DoSaveCopy(wsItems);
     }
 
+    [RelayCommand]
     public async Task FileSaveAll()
     {
         await DoSaveOverwrite(Workspace.RootItems);
@@ -521,6 +527,7 @@ public partial class MainViewModel : ViewModelBase
         await DoSaveCopy(Workspace.RootItems);
     }
 
+    [RelayCommand]
     public void FileCloseAll()
     {
         Workspace.CloseAll();
@@ -536,6 +543,7 @@ public partial class MainViewModel : ViewModelBase
         WindowTitle = DefaultWindowTitle;
     }
 
+    [RelayCommand]
     public void ViewDuplicateTab()
     {
         var files = _factory.GetDockable<IDocumentDock>("Files");
@@ -814,6 +822,7 @@ public partial class MainViewModel : ViewModelBase
         }
     }
 
+    [RelayCommand]
     public void ShowAssetInfoDialog()
     {
         var dialogService = Ioc.Default.GetRequiredService<IDialogService>();
@@ -831,6 +840,7 @@ public partial class MainViewModel : ViewModelBase
         dialogService.Show(new AssetInfoViewModel(Workspace, wsItems));
     }
 
+    [RelayCommand]
     public void ShowSearchBytesDialog()
     {
         var dialogService = Ioc.Default.GetRequiredService<IDialogService>();
@@ -845,6 +855,7 @@ public partial class MainViewModel : ViewModelBase
         dialogService.Show(new AssetDataSearchViewModel(Workspace, fileInsts));
     }
 
+    [RelayCommand]
     public void ShowOptionsDialog()
     {
         var dialogService = Ioc.Default.GetRequiredService<IDialogService>();
